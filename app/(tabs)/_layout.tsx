@@ -1,11 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import NavigationBar from "../../components/navbar";
+import NavigationBar from '../../components/navbar';
 
-export default function Layout(){
+export default function TabsLayout(){
   return (
-    <>
-      <StatusBar style="auto" />
-      <NavigationBar />
-    </>
+    <NavigationBar />
   )
 }

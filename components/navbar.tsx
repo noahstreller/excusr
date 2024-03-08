@@ -1,33 +1,18 @@
-import { Ionicons } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navigation';
+import History from "../app/(tabs)/history";
+import Home from "../app/(tabs)/home";
+import Settings from "../app/(tabs)/settings";
+
 
 export default function NavigationBar(){
+
+  const Tab = createMaterialBottomTabNavigator();
+
   return (
-    <Tabs>
-      <Tabs.Screen name="home/index" options={
-        {
-          title: "",
-          tabBarIcon: ({ color }) => {
-            return <Ionicons name="home" size={25} color={color} style={{marginBottom: -10}} />;
-          }
-        }
-      }  />
-      <Tabs.Screen name="history/index" options={
-        {
-          title: "",
-          tabBarIcon: ({ color }) => {
-            return <Ionicons name="time" size={25} color={color} style={{marginBottom: -10}} />;
-          }
-        }
-      }  />
-      <Tabs.Screen name="settings/index" options={
-        {
-          title: "",
-          tabBarIcon: ({ color }) => {
-            return <Ionicons name="settings" size={25} color={color} style={{marginBottom: -10}} />;
-          }
-        }
-      }  />
-    </Tabs>
+    <Tab.Navigator>
+      <Tab.Screen name="Home" options={{tabBarIcon: "home"}} component={Home}  />
+      <Tab.Screen name="History" options={{tabBarIcon: "history"}} component={History}  />
+      <Tab.Screen name="Settings" options={{tabBarIcon: "cog"}} component={Settings}  />
+    </Tab.Navigator>
   )
 }
