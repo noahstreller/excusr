@@ -22,11 +22,15 @@ export default function Home() {
     button: {
       justifyContent: 'center',
     },
+    error: {
+      textAlign: 'center',
+    }
   });
 
   const [category, setCategory] = useState<string>()
   const [excuse, setExcuse] = useState<Excuse>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string>("")
 
   const fetchExcuse = async (category: string) => {
     setIsLoading(true)
@@ -34,9 +38,10 @@ export default function Home() {
       const response = await fetch(`https://excuser-three.vercel.app/v1/excuse/${category}`)
       const data = await response.json()
       setExcuse(data[0])
+      setError("")
     }
     catch (error) {
-      console.error(error)
+      setError(error)
     }
     finally {
       setIsLoading(false)
@@ -45,11 +50,13 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.dropdownButtonRow}>
-        <CategoryDropdown value={category} setValue={setCategory} />
-        <Button disabled={category === undefined || category === null || category === ""} style={styles.button} icon="lightning-bolt-outline" mode="outlined" onPress={() => fetchExcuse(category as string)}>Get an excuse</Button>
+      <View>
+        <View style={styles.dropdownButtonRow}>
+          <CategoryDropdown value={category} setValue={setCategory} />
+          <Button disabled={category === undefined || category === null || category === ""} style={styles.button} icon="lightning-bolt-outline" mode="outlined" onPress={() => fetchExcuse(category as string)}>Get an excuse</Button>
+        </View>
+        <HelperText style={styles.error} type="error" visible={error !== ""}>There was an issue getting your excuse.</HelperText>
       </View>
-      <HelperText type="error" visible={true}>Select a category and press the button to get an excuse</HelperText>
       <ExcuseOutput excuse={excuse} isLoading={isLoading} />
     </View>
   );
