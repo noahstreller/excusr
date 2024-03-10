@@ -1,8 +1,8 @@
 import { ReactNode, useState } from "react";
+import { ViewStyle } from "react-native";
 import DropDown from "react-native-paper-dropdown";
 
-export default function CategoryDropdown(){
-  
+export default function CategoryDropdown({style = {}, value, setValue}: {style?: ViewStyle, value: string, setValue: (value: string) => void}){
   const categories: Category[] = [
     { label: "Family", value: "family" },
     { label: "Office", value: "office" },
@@ -15,7 +15,6 @@ export default function CategoryDropdown(){
     { label: "Gaming", value: "gaming" }
   ];
 
-  const [value, setValue] = useState<Category>();
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
 
   return (
@@ -25,7 +24,11 @@ export default function CategoryDropdown(){
       value={value}
       setValue={setValue} 
       showDropDown={()=>setShowDropDown(true)} 
-      list={categories}      
+      list={categories}
+      label={"Category"}
+      mode={"outlined"}
+      inputProps={{style: style}}
+      dropDownContainerMaxHeight={400}
     />
   )
 }
