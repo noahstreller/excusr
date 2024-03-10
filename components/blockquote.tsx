@@ -8,6 +8,7 @@ export function Blockquote({children, category}: {children: string, category: st
       alignItems: 'center',
       textAlign: 'center',
       gap: 24,
+      padding: 10,
     },
     blockquote: {
       fontSize: 24,

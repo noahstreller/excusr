@@ -6,7 +6,7 @@ export function ExcuseOutput({excuse, isLoading}: {excuse: Excuse, isLoading: bo
   const styles = StyleSheet.create({
     output: {
       borderRadius: 20,
-      padding: 8,
+      paddingVertical: 20,
       width: '80%',
       justifyContent: 'center',
       alignItems: 'center',
