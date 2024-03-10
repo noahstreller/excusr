@@ -16,7 +16,7 @@ const ToggleSwitch = ({toggleAction}: {toggleAction:Function}) => {
                 style={[
                     styles.outter,
                     isOn
-                      ? { justifyContent: 'flex-end', backgroundColor: 'purple' }
+                      ? { justifyContent: 'flex-end', backgroundColor: 'black' }
                       : { justifyContent: 'flex-start', backgroundColor: 'gray' }
                 ]}
                 activeOpacity={1}
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         alignItems: 'center',
         flexDirection: 'row',
-        paddingHorizontal: 2
+        paddingHorizontal: 2,
     },
     
 });
