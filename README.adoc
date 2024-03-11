@@ -53,3 +53,64 @@ Excuses, that have been shown before, will be marked with an alert.
 === Mockup
 
 image::Figma.jpg[]
+
+=== Technical Implementation
+
+The app uses https://reactnativepaper.com/[React Native Paper] as a component library, to ensure proper MD3 implementation. We use Tab navigation and the Expo Router package to handle the routing.
+
+There are also some custom made components, such as:
+
+- Blockquote
+- Category Dropdown
+- Excuse Output Field
+- Header (based on the Paper component)
+- Navigation Bottom Bar (based on the Paper component)
+- Banner, which is shown when the excuse is a duplicate
+- Popup
+- Settings Item
+- Toggle Switch
+
+As for persistence, we save the full excuse object as a JSON string. The excuse objects have following attributes:
+
+```ts
+{
+  id: number;
+  excuse: string;
+  category: string;
+}
+```
+
+This string is saved to and retrieved from the Async-Storage, provided by the `@react-native-async-storage/async-storage` module.
+
+// Todo: document Light/Dark Mode, Settings persistence, duplicates
+
+=== Tests
+
+[cols="1,5"]
+|===
+|*ID*
+|<Testfall>
+
+|*Anforderungen*
+|<Anforderung der User Stories>
+
+|*Vorbedingungen*
+|<Vorbedingungen des Tests>
+
+|*Ablauf*
+|<Schritte des Tests>
+
+|*Erwartetes Resultat*
+|<Was soll passieren?>
+|===
+
+==== Resultate
+
+[cols="1,1,1,1"]
+|===
+|*ID*
+|*Person*
+|*Datum*
+|*Erfolgreich*
+|*Bemerkungen*
+|===
