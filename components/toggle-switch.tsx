@@ -1,30 +1,38 @@
 import * as React from "react";
 import { useState } from 'react';
-import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { Appbar } from "react-native-paper";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { useTheme } from "react-native-paper";
 
 
-const ToggleSwitch = ({toggleAction}: {toggleAction:Function}) => {
-    const [isOn, setIsOn] = useState(true);
+const ToggleSwitch = ({toggleAction, value}: {toggleAction:Function, value: boolean}) => {
+    const [isOn, setIsOn] = useState(value);
+    const theme = useTheme();
+
     function toggleSwitch() {
         setIsOn(isOn => !isOn);
         toggleAction()
     }
     return (
-        <View>
-            <TouchableOpacity
-                style={[
-                    styles.outter,
-                    isOn
-                      ? { justifyContent: 'flex-end', backgroundColor: 'black' }
-                      : { justifyContent: 'flex-start', backgroundColor: 'gray' }
-                ]}
-                activeOpacity={1}
-                onPress={toggleSwitch}>
-                
-                <View style={styles.inner}/>
-            </TouchableOpacity>
-        </View>
+      <View>
+        <TouchableOpacity
+          style={[
+            styles.outter,
+            isOn
+              ? {
+                  justifyContent: "flex-end",
+                  backgroundColor: theme.colors.primary,
+                }
+              : {
+                  justifyContent: "flex-start",
+                  backgroundColor: theme.colors.inverseOnSurface,
+                },
+          ]}
+          activeOpacity={1}
+          onPress={toggleSwitch}
+        >
+          <View style={styles.inner} />
+        </TouchableOpacity>
+      </View>
     );
 }
   
@@ -47,7 +55,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         alignItems: 'center',
         flexDirection: 'row',
-        paddingHorizontal: 2,
+        paddingHorizontal: 3,
     },
     
 });

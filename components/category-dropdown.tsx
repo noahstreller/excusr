@@ -1,6 +1,8 @@
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { ViewStyle } from "react-native";
+import { useTheme } from "react-native-paper";
 import DropDown from "react-native-paper-dropdown";
+import { Category } from "../lib/types";
 
 export default function CategoryDropdown({style = {}, value, setValue}: {style?: ViewStyle, value: string, setValue: (value: string) => void}){
   const categories: Category[] = [
@@ -16,7 +18,8 @@ export default function CategoryDropdown({style = {}, value, setValue}: {style?:
   ];
 
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
-
+  const theme = useTheme();
+  
   return (
     <DropDown 
       onDismiss={()=>setShowDropDown(false)}
@@ -29,8 +32,7 @@ export default function CategoryDropdown({style = {}, value, setValue}: {style?:
       mode={"outlined"}
       inputProps={{style: style}}
       dropDownContainerMaxHeight={400}
+      dropDownItemTextStyle={{color: theme.colors.onPrimaryContainer}}
     />
   )
 }
-
-export type Category = { label: string; value: string | number; custom?: ReactNode; }

@@ -1,13 +1,17 @@
+import { useContext } from "react";
 import { StyleSheet, View } from "react-native";
 import Header from "../../../components/header";
 import SettingsItem from "../../../components/settings-item";
+import { PreferencesContext } from "../../_layout";
 
 export default function Settings() {
-  function togglelightMode(){
-    console.log("lightMode")
+  const preferences = useContext(PreferencesContext);  
+  
+  function toggleDarkMode(){
+    preferences.toggleTheme()
   }
   function toggleDuplicate(){
-    console.log("duplicate")
+    preferences.toggleDuplicates()
   }
 
   const styles = StyleSheet.create({
@@ -25,13 +29,15 @@ export default function Settings() {
       <Header title="Settings" />
       <View style={styles.container}>
         <SettingsItem 
-          toggleAction={togglelightMode}
-          title="Light mode"
+          toggleAction={toggleDarkMode}
+          title="Dark mode"
+          value={true}
         />
         <SettingsItem 
           toggleAction={toggleDuplicate}
           title="Duplicates"
           hint="Hint"
+          value={true}
         />
       </View>
     </>
