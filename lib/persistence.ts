@@ -3,10 +3,8 @@ import { Excuse } from "../components/excuse-output";
 
 const { getItem, setItem, removeItem, mergeItem } = useAsyncStorage("excuse-id-history");
 
-export const getHistory = async () => {
-  const history = JSON.parse(await getItem());
-  console.log(history);
-  return history;
+export const getHistory = async (): Promise<Excuse[]> => {
+  return JSON.parse(await getItem());
 };
 
 export const addHistory = async (item: Excuse): Promise<boolean> => {
@@ -16,12 +14,6 @@ export const addHistory = async (item: Excuse): Promise<boolean> => {
   history.push(item);
   await setItem(JSON.stringify(history));
   return true;
-}
-
-export const removeHistory = async (id: number) => {
-  const history = await getHistory();
-  const newHistory = history.filter((excuseId) => excuseId !== id);
-  await setItem(JSON.stringify(newHistory));
 }
 
 export const clearHistory = async () => {
