@@ -31,13 +31,13 @@ export default function Settings() {
         <SettingsItem 
           toggleAction={toggleDarkMode}
           title="Dark mode"
-          value={true}
+          value={preferences.darkMode}
         />
         <SettingsItem 
           toggleAction={toggleDuplicate}
           title="Duplicates"
           hint="Hint"
-          value={true}
+          value={preferences.duplicates}
         />
       </View>
     </>

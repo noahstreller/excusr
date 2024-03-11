@@ -8,6 +8,8 @@ import { getPreferences, setPreferences } from '../lib/persistence';
 export const PreferencesContext = createContext<{
   toggleTheme: () => void;
   toggleDuplicates: () => void;
+  darkMode: boolean;
+  duplicates: boolean;
 } | null>(null);
 
 
@@ -19,6 +21,8 @@ export default function RootLayout(){
     () => ({
       toggleTheme: () => setIsDarkMode((oldValue) => !oldValue),
       toggleDuplicates: () => setDuplicates((oldValue) => !oldValue),
+      darkMode,
+      duplicates
     }),
     [darkMode, duplicates]
   );
