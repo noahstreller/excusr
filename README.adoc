@@ -1,0 +1,50 @@
+= Excusr™®©
+Noah Streller, Sameer Gross
+1.0.0
+
+:description: Readme for the Excusr™®© App
+:url-repo: https://github.com/noahstreller/excusr
+:toc: 
+
+== Introduction
+
+The Excusr App is a mobile application to which you can turn to, when you can not think of any good excuses. The user can select a category for his excuse and then describe his situation. The user will then receive an excuse for the selected category. To avoid the user using the same excuses repeatedly, the user is given a hint that he has already used them.
+
+=== Reviews
+  ★★★★★ Sameer Gross:
+  "You certainly know the situation where you want to lie to your loved ones and friends in your vicinity and emotionally manipulate them or simply get out of a tricky situation. Then you need EXCUSR™®© now. Because life is better with EXCUSR™®©" - Sameer Gross (CEO of EXCUSR™®© Inc.)
+
+  ★★★★★ Noah Streller:
+  "..." - Noah Streller (EXCUSR™®© Inc. Sponsor)
+
+  ★✰✰✰✰ Donald Trump:
+  "I don't need this app. I have the best excuses. I have the best words. I have the best brain. I have the best everything. I am the best." - Donald Trump (Former? President of the United States of America)
+
+  ★★★★★ Mark Zuckerberg:
+  "Lizards for the win" - Mark Zuckerberg (CEO of Facebook)
+
+  ★★★✰✰ Elon Musk:
+  "I like the idea, but I think it could be better. I will send you a rocket to Mars, so you can work on it there." - Elon Musk (CEO of SpaceX)
+
+  ★✰✰✰✰ Master Oogway:
+  "There are no accidents." - Master Oogway (Kung Fu Panda)
+
+== Documentation
+
+This is the documentation for the development of the Excusr™®© App. 
+
+=== Abstract
+
+This React Native Application is a mobile interface using data from https://excuser-three.vercel.app[Excuser Three]. 
+The user can use this app to find an excuse if found in a bad situation. 
+The user also has to choose a category, eg. "Family" or "Office". 
+After the user has chosen the category of their desire, they can interact with the "Get excuse"-Button. Right thereafter, the user will receive a random excuse. 
+Excuses, that have been shown before, will be marked with an alert.
+
+=== User Stories
+
+- As a *User*, I would like to get excuses for my desired category, so I can lie to my loved ones.
+- As a *User*, I would like to choose a category for my excuses, so i can adapt to the specific situation.
+- As a *User*, I would like to have the option to mark duplicates with a warning, so I do not reuse the excuses.
+- As a *User*, I would like to have the option to automatically skip duplicates, so I can always see a brand new excuse.
+- As a *User*, I would like to view my excuse history, so I do not reuse the excuses.
