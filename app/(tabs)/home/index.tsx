@@ -17,12 +17,13 @@ export default function Home() {
     },
     dropdownButtonRow: {
       flexDirection: "row",
-      justifyContent: "space-around",
-      width: "100%",
+      justifyContent: "space-between",
+      width: "80%",
       flex: 0,
       alignItems: "center",
     },
     button: {
+      marginTop: 6,
       justifyContent: "center",
     },
     error: {
