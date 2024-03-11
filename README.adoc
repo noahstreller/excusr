@@ -4,7 +4,8 @@ Noah Streller, Sameer Gross
 
 :description: Readme for the Excusr™®© App
 :url-repo: https://github.com/noahstreller/excusr
-:toc: 
+:toc:
+:imagesdir: docs
 
 == Introduction
 
@@ -48,3 +49,7 @@ Excuses, that have been shown before, will be marked with an alert.
 - As a *User*, I would like to have the option to mark duplicates with a warning, so I do not reuse the excuses.
 - As a *User*, I would like to have the option to automatically skip duplicates, so I can always see a brand new excuse.
 - As a *User*, I would like to view my excuse history, so I do not reuse the excuses.
+
+=== Mockup
+
+image::Figma.jpg[]
