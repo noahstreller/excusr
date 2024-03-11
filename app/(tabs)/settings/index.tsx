@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+import Header from "../../../components/header";
 
 export default function Settings() {
   const styles = StyleSheet.create({
@@ -9,8 +10,11 @@ export default function Settings() {
   });
 
   return (
-    <View style={styles.container}>
-      <Text>Settings</Text>
-    </View>
+    <>
+      <Header />
+      <View style={styles.container}>
+        <Text>Settings</Text>
+      </View>
+    </>
   );
 }
