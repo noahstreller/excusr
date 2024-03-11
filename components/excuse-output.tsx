@@ -2,7 +2,7 @@ import { StyleSheet, View } from "react-native";
 import { ActivityIndicator, Surface, Text } from "react-native-paper";
 import { Blockquote } from "./blockquote";
 
-export function ExcuseOutput({excuse, isLoading}: {excuse: Excuse, isLoading: boolean}) {
+export function ExcuseOutput({excuse, isLoading}: {excuse: Excuse | null, isLoading: boolean}) {
   const styles = StyleSheet.create({
     output: {
       borderRadius: 20,

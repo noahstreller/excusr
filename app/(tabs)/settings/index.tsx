@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import Header from "../../../components/header";
 import SettingsItem from "../../../components/settings-item";
 
 export default function Settings() {
@@ -20,16 +21,19 @@ export default function Settings() {
   });
 
   return (
-    <View style={styles.container}>
-      <SettingsItem 
-        toggleAction={togglelightMode}
-        title="Light mode"
-      />
-      <SettingsItem 
-        toggleAction={toggleDuplicate}
-        title="Duplicates"
-        hint="Hint"
-      />
-    </View>
+    <>
+      <Header title="Settings" />
+      <View style={styles.container}>
+        <SettingsItem 
+          toggleAction={togglelightMode}
+          title="Light mode"
+        />
+        <SettingsItem 
+          toggleAction={toggleDuplicate}
+          title="Duplicates"
+          hint="Hint"
+        />
+      </View>
+    </>
   );
 }
