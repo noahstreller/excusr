@@ -108,7 +108,7 @@ a|
 |The User should now see a textbox with a random excuse to the given category.
 |===
 
-=== Tests
+
 
 [cols="1,5"]
 |===
@@ -131,7 +131,7 @@ a|
 |The dropdown text should now contain your desired choosen category
 |===
 
-=== Tests
+
 
 [cols="1,5"]
 |===
@@ -156,7 +156,7 @@ a|
 |The User will now when clicking on "Get an excuse" on the "Home" tab if a duplicate excuse appears a red field will appear which tells you that this excuse is a duplicate one. If a green one appears if means its a unique excuse.
 |===
 
-=== Tests
+
 
 [cols="1,5"]
 |===
@@ -180,7 +180,7 @@ a|
 |The User can just normally use the app and get excuses but there wont be any warnings since duplicate excuses will just be skipped
 |===
 
-=== Tests
+
 
 [cols="1,5"]
 |===
@@ -216,3 +216,10 @@ a|
 |*Erfolgreich*
 |*Bemerkungen*
 |===
+
+
+==== Fazit
+- The project all in all went quite well. We made good progress and didnt have to stress at all.
+- We are quite happy with our result and what we achived in the little time we had.
+- We learnt how to navigate some of the troubles with React Native and made some new experiences with working with Figma. My College and I can both say we have been able to gain knowledge from this project.
+- We achived all we had wanted and even tho there are some ease of use items we could add but those are more luxuries than necessities.
