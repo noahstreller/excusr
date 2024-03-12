@@ -11,6 +11,13 @@ Noah Streller, Sameer Gross
 
 The Excusr App is a mobile application to which you can turn to, when you can not think of any good excuses. The user can select a category for his excuse and then describe his situation. The user will then receive an excuse for the selected category. To avoid the user using the same excuses repeatedly, the user is given a hint that he has already used them.
 
+=== Screenshots
+
+image:homeScreenWithExcuse.png[homeScreenWithExcuse,24%]
+image:historyDark.png[historyDark,24%]
+image:limitReached.png[limitReached,24%]
+image:settingsDarkHint.png[settingsDarkHint,24%]
+
 === Reviews
   ★★★★★ Sameer Gross:
   "You certainly know the situation where you want to lie to your loved ones and friends in your vicinity and emotionally manipulate them or simply get out of a tricky situation. Then you need EXCUSR™®© now. Because life is better with EXCUSR™®©" - Sameer Gross (CEO of EXCUSR™®© Inc.)
@@ -208,14 +215,49 @@ a|
 
 ==== Resultate
 
-[cols="1,1,1,1"]
+[cols="1,2,2,^1,2"]
 |===
 |*ID*
 |*Person*
 |*Datum*
 |*Erfolgreich*
 |*Bemerkungen*
+
+|1
+|Cyrill Schudel
+|12/03/2024
+|*yes*
+|The user could choose a category and get a excuse
+
+|2
+|Joel Schatt
+|12/03/2024
+|*yes*
+|The user could choose a desired category
+
+|3
+|Cyrill Schudel
+|12/03/2024
+|*yes*
+|The user was able to see the marked excuses.
+
+|4
+|Cyrill Schudel
+|12/03/2024
+|*yes*
+|The user just got new excuses and got to see how many retries it took
+
+|5
+|Joel Schatt
+|12/03/2024
+|*yes*
+|The user was able to see the excuses he has already used.
 |===
+
+
+
+
+
 
 
 ==== Fazit
