@@ -2,10 +2,11 @@ import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, HelperText } from "react-native-paper";
 import CategoryDropdown from "../../../components/category-dropdown";
-import { Excuse, ExcuseOutput } from "../../../components/excuse-output";
+import { ExcuseOutput } from "../../../components/excuse-output";
 import Header from "../../../components/header";
 import { NotNewBanner } from "../../../components/notnewbanner";
 import { addHistory } from "../../../lib/persistence";
+import { Excuse } from "../../../lib/types";
 
 export default function Home() {
   const styles = StyleSheet.create({
@@ -54,7 +55,6 @@ export default function Home() {
       setExcuseNotNew(!addedNew);
       setError(false);
     } catch (error) {
-      console.error(error);
       setError(true);
     } finally {
       setIsLoading(false);

@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
-import { Icon, Surface, Text } from "react-native-paper";
+import { Icon, Surface, Text, useTheme } from "react-native-paper";
 
 export function NotNewBanner({notnew = true}: {notnew: boolean}){
+  const theme = useTheme();
+
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: "#ffbbbb",
+      backgroundColor: "#ff8888",
       flex: 0,
       flexDirection: "row",
       justifyContent: "space-evenly",
@@ -14,7 +16,7 @@ export function NotNewBanner({notnew = true}: {notnew: boolean}){
       alignItems: "center",
     },
     containernew: {
-      backgroundColor: "#bbffbb",
+      backgroundColor: "#88cc88",
       flex: 0,
       flexDirection: "row",
       justifyContent: "space-evenly",
@@ -28,13 +30,21 @@ export function NotNewBanner({notnew = true}: {notnew: boolean}){
     <>
       {notnew ? (
         <Surface mode="flat" elevation={5} style={styles.container}>
-          <Icon source="alert-outline" size={24} />
-          <Text>This excuse has already been used</Text>
+          <Icon
+            color={theme.colors.background}
+            source="alert-outline"
+            size={24}
+          />
+          <Text style={{ color: theme.colors.background }}>
+            This excuse has already been used
+          </Text>
         </Surface>
       ) : (
         <Surface mode="flat" elevation={5} style={styles.containernew}>
-          <Icon source="check" size={24} />
-          <Text>This excuse has not been used</Text>
+          <Icon color={theme.colors.background} source="check" size={24} />
+          <Text style={{ color: theme.colors.background }}>
+            This excuse has not been used
+          </Text>
         </Surface>
       )}
     </>

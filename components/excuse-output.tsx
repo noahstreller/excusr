@@ -1,8 +1,10 @@
 import { StyleSheet, View } from "react-native";
-import { ActivityIndicator, Surface, Text } from "react-native-paper";
+import { ActivityIndicator, Surface, Text, useTheme } from "react-native-paper";
+import { Excuse } from "../lib/types";
 import { Blockquote } from "./blockquote";
 
 export function ExcuseOutput({excuse, isLoading}: {excuse: Excuse | null, isLoading: boolean}) {
+  const theme = useTheme();
   const styles = StyleSheet.create({
     output: {
       borderRadius: 20,
@@ -21,7 +23,7 @@ export function ExcuseOutput({excuse, isLoading}: {excuse: Excuse | null, isLoad
     <Surface style={styles.output} elevation={1} mode='flat'>
       {
         isLoading ?
-        <ActivityIndicator animating={true} color="#000" /> : 
+        <ActivityIndicator animating={true} color={theme.colors.onSurface} /> : 
         (
           excuse ?
           <Blockquote category={excuse.category}>{excuse.excuse}</Blockquote> :
@@ -35,10 +37,4 @@ export function ExcuseOutput({excuse, isLoading}: {excuse: Excuse | null, isLoad
       }
     </Surface>
   );
-}
-
-export type Excuse = {
-  id: number;
-  excuse: string;
-  category: string;
 }
