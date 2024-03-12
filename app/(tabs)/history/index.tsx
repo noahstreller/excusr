@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { Appbar } from "react-native-paper";
-import { Excuse, ExcuseOutput } from "../../../components/excuse-output";
+import { ExcuseOutput } from "../../../components/excuse-output";
 import Header from "../../../components/header";
 import { clearHistory, getHistory } from "../../../lib/persistence";
+import { Excuse } from "../../../lib/types";
 
 export default function History({navigation}: {navigation: any}) {
   const styles = StyleSheet.create({

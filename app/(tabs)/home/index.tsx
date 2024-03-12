@@ -55,7 +55,6 @@ export default function Home() {
       setExcuseNotNew(!addedNew);
       setError(false);
     } catch (error) {
-      console.error(error);
       setError(true);
     } finally {
       setIsLoading(false);

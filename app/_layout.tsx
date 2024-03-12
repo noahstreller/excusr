@@ -32,7 +32,6 @@ export default function RootLayout(){
       const userSettings = await getPreferences();
       setIsDarkMode(userSettings.darkMode);
       setDuplicates(userSettings.duplicates);
-      console.log(userSettings);
     };
     restore();
   }, []);
@@ -46,7 +45,6 @@ export default function RootLayout(){
         darkMode: darkMode,
         duplicates: duplicates,
       };
-      console.log("Current ", current);
       await setPreferences(current);
     };
     save();

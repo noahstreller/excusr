@@ -23,13 +23,11 @@ export const clearHistory = async () => {
 
 export const getPreferences = async (): Promise<Preferences> => {
   let data = JSON.parse(await settingsStore.getItem());
-  console.log("data ", data)
-  // if (Object.keys(data).length === 0) data = await setDefaultPreferences();
+  if (Object.keys(data).length === 0) data = await setDefaultPreferences();
   return data;
 };
 
 export const setPreferences = async (preferences: Preferences) => {
-  console.log("setting ", preferences)
   await settingsStore.setItem(JSON.stringify(preferences));
 }
 
