@@ -262,6 +262,6 @@ a|
 
 ==== Fazit
 - The project all in all went quite well. We made good progress and didn't have to stress at all.
-- We are quite happy with our result and what we achived in the little time we had.
-- We learnt how to navigate some of the troubles with React Native and made some new experiences with working with Figma. My College and I can both say we have been able to gain knowledge from this project.
-- We achived all we had wanted and even tho there are some ease of use items we could add but those are more luxuries than necessities.
+- We are quite happy with our result and what we achieved in the little time we had.
+- We learned how to navigate some of the troubles with React Native and had some new experiences with working with Figma. My College and I can both say we have been able to gain knowledge from this project.
+- We achieved all we had wanted and even tho there are some ease-of-use items we could add but those are more luxuries than necessities.
