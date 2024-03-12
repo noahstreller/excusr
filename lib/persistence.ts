@@ -8,6 +8,10 @@ export const getHistory = async (): Promise<Excuse[]> => {
   return JSON.parse(await historyStore.getItem());
 };
 
+export const setHistoryFromArray = async (excuses: Excuse[]) => {
+  await historyStore.setItem(JSON.stringify(excuses));
+};
+
 export const addHistory = async (item: Excuse): Promise<boolean> => {
   let history: Excuse[] = await getHistory();
   if(!history) history = [];
