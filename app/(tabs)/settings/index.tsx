@@ -28,15 +28,15 @@ export default function Settings() {
     <>
       <Header title="Settings" />
       <View style={styles.container}>
-        <SettingsItem 
+        <SettingsItem
           toggleAction={toggleDarkMode}
           title="Dark mode"
           value={preferences.darkMode}
         />
-        <SettingsItem 
+        <SettingsItem
           toggleAction={toggleDuplicate}
           title="Duplicates"
-          hint="Hint"
+          hint="Enabling duplicates will disable automatic retries if the excuse has already been seen. The alert banner will still show up."
           value={preferences.duplicates}
         />
       </View>

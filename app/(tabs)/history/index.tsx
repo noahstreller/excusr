@@ -10,7 +10,7 @@ import {
 } from "../../../lib/persistence";
 import { Excuse } from "../../../lib/types";
 
-export default function History({ navigation }: { navigation: any }) {
+export default function History({ navigation }: any) {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -38,9 +38,10 @@ export default function History({ navigation }: { navigation: any }) {
   };
 
   useEffect(() => {
-    navigation.addListener("focus", () => {
+    const unsubscribe = navigation.addListener("focus", () => {
       refresh();
     });
+    return unsubscribe;
   }, [navigation]);
 
   return (

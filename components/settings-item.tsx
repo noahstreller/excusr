@@ -23,6 +23,7 @@ export default function SettingsItem({ title, toggleAction, hint, value }: { tog
     settingsItemTitleIcon: {
       flexDirection: "row",
       alignItems: "center",
+      gap: 5,
     },
     modalContainer: {
       flex: 1,
@@ -48,7 +49,7 @@ export default function SettingsItem({ title, toggleAction, hint, value }: { tog
         <View style={styles.settingsItemTitleIcon}>
           <Text style={styles.settingsItemTitle}>{title}</Text>
           {hint &&
-            <Icon size={15} source={"information-outline"} />
+            <Icon size={16} source={"information-outline"} />
           }
         </View>
       </TouchableOpacity>
@@ -63,7 +64,7 @@ export default function SettingsItem({ title, toggleAction, hint, value }: { tog
           onPress={() => setModalVisible(false)}
         >
           <View style={styles.modalContent}>
-            <Text>Enabling Duplicates makes it so that you get a Duplicate excuses will be marked.</Text>
+            <Text>{hint}</Text>
           </View>
         </TouchableOpacity>
       </Modal>

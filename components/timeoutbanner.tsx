@@ -25,7 +25,7 @@ export function TimeoutBanner({ retries }: { retries: number }) {
         size={24}
       />
       <Text style={{ color: theme.colors.background, maxWidth: "80%" }}>
-        There was no unique excuse after {retries} retries. You can disable duplicates in the settings or delete the history.
+        There was no unique excuse after {retries} retries. You can toggle duplicates in the settings or delete the history.
       </Text>
     </Surface>
   );
