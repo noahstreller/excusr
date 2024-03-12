@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import { Appbar } from "react-native-paper";
-import { Excuse, ExcuseOutput } from "../../../components/excuse-output";
+import { Appbar, Snackbar } from "react-native-paper";
+import { ExcuseOutput } from "../../../components/excuse-output";
 import Header from "../../../components/header";
-import { clearHistory, getHistory } from "../../../lib/persistence";
+import {
+  clearHistory,
+  getHistory,
+  setHistoryFromArray,
+} from "../../../lib/persistence";
+import { Excuse } from "../../../lib/types";
 
-export default function History({navigation}: {navigation: any}) {
+export default function History({ navigation }: { navigation: any }) {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -19,13 +24,17 @@ export default function History({navigation}: {navigation: any}) {
     },
   });
 
-  const [history, setHistory] = useState<Excuse[]>();
+  const [backup, setBackup] = useState<Excuse[]>([]);
+  const [history, setHistory] = useState<Excuse[]>([]);
+  const [visible, setVisible] = useState<boolean>(false);
 
   const refresh = async () => {
-    (async () => {
-      const history = await getHistory();
-      setHistory(history);
-    })();
+    const history = await getHistory();
+    setHistory(history);
+  };
+
+  const onDismissSnackBar = () => {
+    setVisible(false);
   };
 
   useEffect(() => {
@@ -46,6 +55,8 @@ export default function History({navigation}: {navigation: any}) {
         <Appbar.Action
           icon="delete"
           onPress={() => {
+            setVisible(true);
+            if (history) setBackup([...history]);
             clearHistory();
             refresh();
           }}
@@ -57,6 +68,22 @@ export default function History({navigation}: {navigation: any}) {
             <ExcuseOutput excuse={excuse} isLoading={false} key={index} />
           )) || <ExcuseOutput excuse={null} isLoading={false} />}
         </ScrollView>
+
+        <Snackbar
+          visible={visible}
+          onDismiss={onDismissSnackBar}
+          action={{
+            label: "Undo",
+            onPress: () => {
+              if (backup) {
+                setHistory([...backup]);
+                setHistoryFromArray(backup);
+              }
+            },
+          }}
+        >
+          History deleted
+        </Snackbar>
       </View>
     </>
   );

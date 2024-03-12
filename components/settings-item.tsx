@@ -1,40 +1,41 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, Modal, Dimensions } from "react-native";
+import { Modal, StyleSheet, TouchableOpacity, View } from "react-native";
+import { Icon, Text, useTheme } from "react-native-paper";
 import ToggleSwitch from "./toggle-switch";
-import { Icon } from "react-native-paper";
 
-export default function SettingsItem({ title, toggleAction, hint }: { toggleAction: Function, title: string, hint?: string }) {
+export default function SettingsItem({ title, toggleAction, hint, value }: { toggleAction: Function, title: string, hint?: string, value: boolean }) {
   const [modalVisible, setModalVisible] = useState(false);
+  const theme = useTheme();
 
   const styles = StyleSheet.create({
     container: {
       flex: 0,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      width: '100%',
+      flexDirection: "row",
+      justifyContent: "space-between",
+      width: "100%",
       height: 40,
-      alignItems: 'center'
+      alignItems: "center",
     },
     settingsItemTitle: {
       fontSize: 20,
-      fontWeight: '500'
+      fontWeight: "500",
     },
     settingsItemTitleIcon: {
-      flexDirection: 'row',
-      alignItems: 'center',
+      flexDirection: "row",
+      alignItems: "center",
     },
     modalContainer: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
     modalContent: {
-      backgroundColor: 'white',
+      backgroundColor: theme.colors.background,
       padding: 40,
       borderRadius: 10,
-      width: "80%"
-    }
+      width: "80%",
+    },
   });
 
   function infoAction() {
@@ -63,13 +64,10 @@ export default function SettingsItem({ title, toggleAction, hint }: { toggleActi
         >
           <View style={styles.modalContent}>
             <Text>Enabling Duplicates makes it so that you get a Duplicate excuses will be marked.</Text>
-            <TouchableOpacity onPress={() => setModalVisible(false)}>
-              <Text>Close</Text>
-            </TouchableOpacity>
           </View>
         </TouchableOpacity>
       </Modal>
-      <ToggleSwitch toggleAction={toggleAction} />
+      <ToggleSwitch toggleAction={toggleAction} value={value} />
     </View>
   );
 }

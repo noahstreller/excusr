@@ -1,10 +1,15 @@
 import { useAsyncStorage } from "@react-native-async-storage/async-storage";
-import { Excuse } from "../components/excuse-output";
+import { Excuse, Preferences } from "./types";
 
-const { getItem, setItem, removeItem, mergeItem } = useAsyncStorage("excuse-id-history");
+const historyStore = useAsyncStorage("excuse-id-history");
+const settingsStore = useAsyncStorage("preferences");
 
 export const getHistory = async (): Promise<Excuse[]> => {
-  return JSON.parse(await getItem());
+  return JSON.parse(await historyStore.getItem());
+};
+
+export const setHistoryFromArray = async (excuses: Excuse[]) => {
+  await historyStore.setItem(JSON.stringify(excuses));
 };
 
 export const addHistory = async (item: Excuse): Promise<boolean> => {
@@ -12,10 +17,29 @@ export const addHistory = async (item: Excuse): Promise<boolean> => {
   if(!history) history = [];
   if (history.some(excuse => excuse.id === item.id)) return false;
   history.push(item);
-  await setItem(JSON.stringify(history));
+  await historyStore.setItem(JSON.stringify(history));
   return true;
 }
 
 export const clearHistory = async () => {
-  await removeItem();
+  await historyStore.removeItem();
+}
+
+export const getPreferences = async (): Promise<Preferences> => {
+  let data = JSON.parse(await settingsStore.getItem());
+  if (Object.keys(data).length === 0) data = await setDefaultPreferences();
+  return data;
+};
+
+export const setPreferences = async (preferences: Preferences) => {
+  await settingsStore.setItem(JSON.stringify(preferences));
+}
+
+export const setDefaultPreferences = async (): Promise<Preferences> => {
+  let defaults: Preferences = {
+    darkMode: true,
+    duplicates: true,
+  };
+  await setPreferences(defaults);
+  return defaults;
 }
