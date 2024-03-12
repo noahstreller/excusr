@@ -13,10 +13,10 @@ The Excusr App is a mobile application to which you can turn to, when you can no
 
 === Screenshots
 
-image:homeScreenWithExcuse.png[homeScreenWithExcuse,24%]
-image:historyDark.png[historyDark,24%]
-image:limitReached.png[limitReached,24%]
-image:settingsDarkHint.png[settingsDarkHint,24%]
+image:homeScreenWithExcuse.PNG[homeScreenWithExcuse,24%]
+image:historyDark.PNG[historyDark,24%]
+image:limitReached.PNG[limitReached,24%]
+image:settingsDarkHint.PNG[settingsDarkHint,24%]
 
 === Reviews
   ★★★★★ Sameer Gross:
