@@ -26,7 +26,7 @@ image:settingsDarkHint.PNG[settingsDarkHint,24%]
   "..." - Noah Streller (EXCUSR™®© Inc. Sponsor)
 
   ★✰✰✰✰ Donald Trump:
-  "I don't need this app. I have the best excuses. I have the best words. I have the best brain. I have the best everything. I am the best." - Donald Trump (Former? President of the United States of America)
+  "I don't need this app. I have the best excuses. I have the best words. I have the best brain. I have the best of everything. I am the best." - Donald Trump (Former? President of the United States of America)
 
   ★★★★★ Mark Zuckerberg:
   "Lizards for the win" - Mark Zuckerberg (CEO of Facebook)
@@ -52,7 +52,7 @@ Excuses, that have been shown before, will be marked with an alert.
 === User Stories
 
 - As a *User*, I would like to get excuses for my desired category, so I can lie to my loved ones.
-- As a *User*, I would like to choose a category for my excuses, so i can adapt to the specific situation.
+- As a *User*, I would like to choose a category for my excuses, so I can adapt to the specific situation.
 - As a *User*, I would like to have the option to mark duplicates with a warning, so I do not reuse the excuses.
 - As a *User*, I would like to have the option to automatically skip duplicates, so I can always see a brand new excuse.
 - As a *User*, I would like to view my excuse history, so I do not reuse the excuses.
@@ -112,7 +112,7 @@ a|
 * press the "Get an excuse" button on the right side of the dropdown
 
 |*Erwartetes Resultat*
-|The User should now see a textbox with a random excuse to the given category.
+|The User should now see a textbox with a random excuse for the given category.
 |===
 
 
@@ -123,7 +123,7 @@ a|
 |2
 
 |*Anforderungen*
-|As a *User*, I would like to choose a category for my excuses, so i can adapt to the specific situation.
+|As a *User*, I would like to choose a category for my excuses, so I can adapt to the specific situation.
 
 |*Vorbedingungen*
 |The User has to be on the Excusr "Home" tab
@@ -135,7 +135,7 @@ a|
 * The user has to click on the desired category which will appear
 
 |*Erwartetes Resultat*
-|The dropdown text should now contain your desired choosen category
+|The dropdown text should now contain your desired chosen category
 |===
 
 
@@ -184,7 +184,7 @@ a|
 * Make sure the "Duplicate" switch is in the "OFF" position
 
 |*Erwartetes Resultat*
-|The User can just normally use the app and get excuses but there wont be any warnings since duplicate excuses will just be skipped
+|The User can just normally use the app and get excuses but there won't be any warnings since duplicate excuses will just be skipped
 |===
 
 
