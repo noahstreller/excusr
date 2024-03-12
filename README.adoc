@@ -1,11 +1,13 @@
 = Excusr™®©
 Noah Streller, Sameer Gross
 1.0.0
-
 :description: Readme for the Excusr™®© App
 :url-repo: https://github.com/noahstreller/excusr
-:toc:
 :imagesdir: docs
+:toc:
+:toclevels: 5
+
+image:icon.png[]
 
 == Introduction
 
@@ -87,9 +89,9 @@ As for persistence, we save the full excuse object as a JSON string. The excuse 
 }
 ```
 
-This string is saved to and retrieved from the Async-Storage, provided by the `@react-native-async-storage/async-storage` module.
+This string is saved to and retrieved from the Async-Storage, provided by the `@react-native-async-storage/async-storage` module. 
 
-// Todo: document Light/Dark Mode, Settings persistence, duplicates
+The users preferences are saved in the async storage as well. The preferences can be used in the entire app by wrapping it in a context provider. If the user wishes to disable duplicates, the app will retry to find a unused excuse 100 times. Sadly, there is no better method, as the API depends on randomized results.
 
 === Tests
 
@@ -98,20 +100,20 @@ This string is saved to and retrieved from the Async-Storage, provided by the `@
 |*ID*
 |1
 
-|*Anforderungen*
+|*Requirements*
 |As a *User*, I would like to get excuses for my desired category, so I can lie to my loved ones.
 
-|*Vorbedingungen*
+|*Requisites*
 |The User has to be on the Excusr "Home" Tab
 
-|*Ablauf*
+|*Instructions*
 a| 
 * Open App
 * Click on the dropdown
 * Choose the desired category from the dropdown
 * press the "Get an excuse" button on the right side of the dropdown
 
-|*Erwartetes Resultat*
+|*Expected Results*
 |The User should now see a textbox with a random excuse for the given category.
 |===
 
@@ -122,85 +124,78 @@ a|
 |*ID*
 |2
 
-|*Anforderungen*
+|*Requirements*
 |As a *User*, I would like to choose a category for my excuses, so I can adapt to the specific situation.
 
-|*Vorbedingungen*
+|*Requisites*
 |The User has to be on the Excusr "Home" tab
 
-|*Ablauf*
+|*Instructions*
 a|
 * Open the App
 * The user has to click on the dropdown
 * The user has to click on the desired category which will appear
 
-|*Erwartetes Resultat*
+|*Expected Results*
 |The dropdown text should now contain your desired chosen category
 |===
-
-
 
 [cols="1,5"]
 |===
 |*ID*
 |3
 
-|*Anforderungen*
+|*Requirements*
 |As a *User*, I would like to have the option to mark duplicates with a warning, so I do not reuse the excuses.
 
-|*Vorbedingungen*
+|*Requisites*
 |The user should be on the "Settings" tab
 
-|*Ablauf*
+|*Instructions*
 a|
 * Open the App
 * Navigate to the "Settings" tab
 * Toggle the "Duplicate" switch
 * Make sure the "Duplicate" switch is in the "ON" position
 
-
-|*Erwartetes Resultat*
+|*Expected Results*
 |The User will now when clicking on "Get an excuse" on the "Home" tab if a duplicate excuse appears a red field will appear which tells you that this excuse is a duplicate one. If a green one appears if means its a unique excuse.
 |===
-
-
 
 [cols="1,5"]
 |===
 |*ID*
 |4
 
-|*Anforderungen*
+|*Requirements*
 |As a *User*, I would like to have the option to automatically skip duplicates, so I can always see a brand new excuse.
 
-|*Vorbedingungen*
+|*Requisites*
 |The user should be on the "Settings" tab
 
-|*Ablauf*
+|*Instructions*
 a|
 * Open the App
 * Navigate to the "Settings" tab
 * Toggle the "Duplicate" switch
 * Make sure the "Duplicate" switch is in the "OFF" position
 
-|*Erwartetes Resultat*
+|*Expected Results*
 |The User can just normally use the app and get excuses but there won't be any warnings since duplicate excuses will just be skipped
 |===
-
-
 
 [cols="1,5"]
 |===
 |*ID*
 |5
 
-|*Anforderungen*
+|*Requirements*
 |As a *User*, I would like to view my excuse history, so I do not reuse the excuses.
 
-|*Vorbedingungen*
+|*Requisites*
 |The user should be on the "History" tab
 
-|*Ablauf*
+|*Instructions*
 a|
 * Open the App
 * Navigate to the "Home" tab
@@ -208,20 +203,19 @@ a|
 * Choose the desired category from the dropdown
 * press the "Get an excuse" button on the right side of the dropdown
 * Navigate to the "History" tab
-|*Erwartetes Resultat*
+|*Expected Results*
 |The user should now be able to see the excuses he has already gotten.
 |===
 
-
-==== Resultate
+==== Results
 
 [cols="1,2,2,^1,2"]
 |===
 |*ID*
 |*Person*
-|*Datum*
-|*Erfolgreich*
-|*Bemerkungen*
+|*Date*
+|*Success*
+|*Notes*
 
 |1
 |Cyrill Schudel
@@ -254,13 +248,8 @@ a|
 |The user was able to see the excuses he had already used.
 |===
 
+=== Summary
 
-
-
-
-
-
-==== Fazit
 - The project all in all went quite well. We made good progress and didn't have to stress at all.
 - We are quite happy with our result and what we achieved in the little time we had.
 - We learned how to navigate some of the troubles with React Native and had some new experiences with working with Figma. My College and I can both say we have been able to gain knowledge from this project.
