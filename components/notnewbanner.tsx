@@ -9,7 +9,8 @@ export function NotNewBanner({notnew = true}: {notnew: boolean}){
       backgroundColor: "#ff8888",
       flex: 0,
       flexDirection: "row",
-      justifyContent: "space-evenly",
+      justifyContent: "flex-start",
+      gap: 20,
       padding: 20,
       borderRadius: 10,
       width: "80%",
@@ -19,7 +20,8 @@ export function NotNewBanner({notnew = true}: {notnew: boolean}){
       backgroundColor: "#88cc88",
       flex: 0,
       flexDirection: "row",
-      justifyContent: "space-evenly",
+      justifyContent: "flex-start",
+      gap: 20,
       padding: 20,
       borderRadius: 10,
       width: "80%",
@@ -35,14 +37,14 @@ export function NotNewBanner({notnew = true}: {notnew: boolean}){
             source="alert-outline"
             size={24}
           />
-          <Text style={{ color: theme.colors.background }}>
+          <Text style={{ color: theme.colors.background, maxWidth: "80%" }}>
             This excuse has already been used
           </Text>
         </Surface>
       ) : (
         <Surface mode="flat" elevation={5} style={styles.containernew}>
           <Icon color={theme.colors.background} source="check" size={24} />
-          <Text style={{ color: theme.colors.background }}>
+          <Text style={{ color: theme.colors.background, maxWidth: "80%" }}>
             This excuse has not been used
           </Text>
         </Surface>
