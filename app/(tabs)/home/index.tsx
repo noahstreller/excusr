@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, HelperText } from "react-native-paper";
 import CategoryDropdown from "../../../components/category-dropdown";
@@ -8,6 +8,7 @@ import { NotNewBanner } from "../../../components/notnewbanner";
 import { TimeoutBanner } from "../../../components/timeoutbanner";
 import { addHistory } from "../../../lib/persistence";
 import { Excuse } from "../../../lib/types";
+import { PreferencesContext } from "../../_layout";
 
 export default function Home() {
   const styles = StyleSheet.create({
@@ -45,6 +46,8 @@ export default function Home() {
   const [excuseNotNew, setExcuseNotNew] = useState<boolean>(false);
   const [limitReached, setLimitReached] = useState<boolean>(false);
   const [retries, setRetries] = useState<number>(0);
+  
+  const preferences = useContext(PreferencesContext);
 
   const fetchExcuse = async (category: string, retries: number = 0) => {
     setIsLoading(true);
@@ -58,7 +61,7 @@ export default function Home() {
       const data = await response.json();
       let addedNew = await addHistory(data[0]);
 
-      if (!addedNew && retries < 100) {
+      if (!addedNew && retries < 100 && !preferences.duplicates) {
         fetchExcuse(category, retries + 1);
         return;
       } else {
@@ -106,7 +109,7 @@ export default function Home() {
           {!isLoading && excuse && <NotNewBanner notnew={excuseNotNew} />}
           <ExcuseOutput excuse={excuse} isLoading={isLoading} />
         </View>
-        <HelperText style={styles.error} type="info">
+        <HelperText style={styles.error} type="info" visible={!preferences.duplicates}>
           Retries: {retries}
         </HelperText>
       </View>
