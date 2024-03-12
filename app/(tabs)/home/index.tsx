@@ -5,6 +5,7 @@ import CategoryDropdown from "../../../components/category-dropdown";
 import { ExcuseOutput } from "../../../components/excuse-output";
 import Header from "../../../components/header";
 import { NotNewBanner } from "../../../components/notnewbanner";
+import { TimeoutBanner } from "../../../components/timeoutbanner";
 import { addHistory } from "../../../lib/persistence";
 import { Excuse } from "../../../lib/types";
 
@@ -34,7 +35,7 @@ export default function Home() {
       gap: 24,
       width: "100%",
       alignItems: "center",
-    }
+    },
   });
 
   const [category, setCategory] = useState<string>();
@@ -42,21 +43,34 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [excuseNotNew, setExcuseNotNew] = useState<boolean>(false);
+  const [limitReached, setLimitReached] = useState<boolean>(false);
+  const [retries, setRetries] = useState<number>(0);
 
-  const fetchExcuse = async (category: string) => {
+  const fetchExcuse = async (category: string, retries: number = 0) => {
     setIsLoading(true);
+    setLimitReached(false);
+    setRetries(retries);
+
     try {
       const response = await fetch(
         `https://excuser-three.vercel.app/v1/excuse/${category}`
       );
       const data = await response.json();
-      setExcuse(data[0]);
       let addedNew = await addHistory(data[0]);
-      setExcuseNotNew(!addedNew);
-      setError(false);
+
+      if (!addedNew && retries < 100) {
+        fetchExcuse(category, retries + 1);
+        return;
+      } else {
+        if (retries >= 100) setLimitReached(true);
+        else setLimitReached(false);
+        setExcuseNotNew(!addedNew);
+        setExcuse(data[0]);
+        setError(false);
+        setIsLoading(false);
+      }
     } catch (error) {
       setError(true);
-    } finally {
       setIsLoading(false);
     }
   };
@@ -70,7 +84,10 @@ export default function Home() {
             <CategoryDropdown value={category} setValue={setCategory} />
             <Button
               disabled={
-                category === undefined || category === null || category === ""
+                category === undefined ||
+                category === null ||
+                category === "" ||
+                isLoading
               }
               style={styles.button}
               icon="lightning-bolt-outline"
@@ -85,9 +102,13 @@ export default function Home() {
           </HelperText>
         </View>
         <View style={styles.outputWrapper}>
-          {excuse && <NotNewBanner notnew={excuseNotNew} />}
+          {limitReached && <TimeoutBanner retries={retries} />}
+          {!isLoading && excuse && <NotNewBanner notnew={excuseNotNew} />}
           <ExcuseOutput excuse={excuse} isLoading={isLoading} />
         </View>
+        <HelperText style={styles.error} type="info">
+          Retries: {retries}
+        </HelperText>
       </View>
     </>
   );
