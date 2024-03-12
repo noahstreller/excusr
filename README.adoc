@@ -65,7 +65,7 @@ image::Figma.jpg[]
 
 The app uses https://reactnativepaper.com/[React Native Paper] as a component library, to ensure proper MD3 implementation. We use Tab navigation and the Expo Router package to handle the routing.
 
-There are also some custom made components, such as:
+There are also some custom-made components, such as:
 
 - Blockquote
 - Category Dropdown
@@ -77,7 +77,7 @@ There are also some custom made components, such as:
 - Settings Item
 - Toggle Switch
 
-As for persistence, we save the full excuse object as a JSON string. The excuse objects have following attributes:
+As for persistence, we save the full excuse object as a JSON string. The excuse objects have the following attributes:
 
 ```ts
 {
@@ -227,7 +227,7 @@ a|
 |Cyrill Schudel
 |12/03/2024
 |*yes*
-|The user could choose a category and get a excuse
+|The user could choose a category and get an excuse
 
 |2
 |Joel Schatt
@@ -251,7 +251,7 @@ a|
 |Joel Schatt
 |12/03/2024
 |*yes*
-|The user was able to see the excuses he has already used.
+|The user was able to see the excuses he had already used.
 |===
 
 
@@ -261,7 +261,7 @@ a|
 
 
 ==== Fazit
-- The project all in all went quite well. We made good progress and didnt have to stress at all.
+- The project all in all went quite well. We made good progress and didn't have to stress at all.
 - We are quite happy with our result and what we achived in the little time we had.
 - We learnt how to navigate some of the troubles with React Native and made some new experiences with working with Figma. My College and I can both say we have been able to gain knowledge from this project.
 - We achived all we had wanted and even tho there are some ease of use items we could add but those are more luxuries than necessities.
