@@ -4,7 +4,8 @@ Noah Streller, Sameer Gross
 
 :description: Readme for the Excusr™®© App
 :url-repo: https://github.com/noahstreller/excusr
-:toc: 
+:toc:
+:imagesdir: docs
 
 == Introduction
 
@@ -48,3 +49,170 @@ Excuses, that have been shown before, will be marked with an alert.
 - As a *User*, I would like to have the option to mark duplicates with a warning, so I do not reuse the excuses.
 - As a *User*, I would like to have the option to automatically skip duplicates, so I can always see a brand new excuse.
 - As a *User*, I would like to view my excuse history, so I do not reuse the excuses.
+
+=== Mockup
+
+image::Figma.jpg[]
+
+=== Technical Implementation
+
+The app uses https://reactnativepaper.com/[React Native Paper] as a component library, to ensure proper MD3 implementation. We use Tab navigation and the Expo Router package to handle the routing.
+
+There are also some custom made components, such as:
+
+- Blockquote
+- Category Dropdown
+- Excuse Output Field
+- Header (based on the Paper component)
+- Navigation Bottom Bar (based on the Paper component)
+- Banner, which is shown when the excuse is a duplicate
+- Popup
+- Settings Item
+- Toggle Switch
+
+As for persistence, we save the full excuse object as a JSON string. The excuse objects have following attributes:
+
+```ts
+{
+  id: number;
+  excuse: string;
+  category: string;
+}
+```
+
+This string is saved to and retrieved from the Async-Storage, provided by the `@react-native-async-storage/async-storage` module.
+
+// Todo: document Light/Dark Mode, Settings persistence, duplicates
+
+=== Tests
+
+[cols="1,5"]
+|===
+|*ID*
+|1
+
+|*Anforderungen*
+|As a *User*, I would like to get excuses for my desired category, so I can lie to my loved ones.
+
+|*Vorbedingungen*
+|The User has to be on the Excusr "Home" Tab
+
+|*Ablauf*
+a| 
+* Open App
+* Click on the dropdown
+* Choose the desired category from the dropdown
+* press the "Get an excuse" button on the right side of the dropdown
+
+|*Erwartetes Resultat*
+|The User should now see a textbox with a random excuse to the given category.
+|===
+
+=== Tests
+
+[cols="1,5"]
+|===
+|*ID*
+|2
+
+|*Anforderungen*
+|As a *User*, I would like to choose a category for my excuses, so i can adapt to the specific situation.
+
+|*Vorbedingungen*
+|The User has to be on the Excusr "Home" tab
+
+|*Ablauf*
+a|
+* Open the App
+* The user has to click on the dropdown
+* The user has to click on the desired category which will appear
+
+|*Erwartetes Resultat*
+|The dropdown text should now contain your desired choosen category
+|===
+
+=== Tests
+
+[cols="1,5"]
+|===
+|*ID*
+|3
+
+|*Anforderungen*
+|As a *User*, I would like to have the option to mark duplicates with a warning, so I do not reuse the excuses.
+
+|*Vorbedingungen*
+|The user should be on the "Settings" tab
+
+|*Ablauf*
+a|
+* Open the App
+* Navigate to the "Settings" tab
+* Toggle the "Duplicate" switch
+* Make sure the "Duplicate" switch is in the "ON" position
+
+
+|*Erwartetes Resultat*
+|The User will now when clicking on "Get an excuse" on the "Home" tab if a duplicate excuse appears a red field will appear which tells you that this excuse is a duplicate one. If a green one appears if means its a unique excuse.
+|===
+
+=== Tests
+
+[cols="1,5"]
+|===
+|*ID*
+|4
+
+|*Anforderungen*
+|As a *User*, I would like to have the option to automatically skip duplicates, so I can always see a brand new excuse.
+
+|*Vorbedingungen*
+|The user should be on the "Settings" tab
+
+|*Ablauf*
+a|
+* Open the App
+* Navigate to the "Settings" tab
+* Toggle the "Duplicate" switch
+* Make sure the "Duplicate" switch is in the "OFF" position
+
+|*Erwartetes Resultat*
+|The User can just normally use the app and get excuses but there wont be any warnings since duplicate excuses will just be skipped
+|===
+
+=== Tests
+
+[cols="1,5"]
+|===
+|*ID*
+|5
+
+|*Anforderungen*
+|As a *User*, I would like to view my excuse history, so I do not reuse the excuses.
+
+|*Vorbedingungen*
+|The user should be on the "History" tab
+
+|*Ablauf*
+a|
+* Open the App
+* Navigate to the "Home" tab
+* Click on the dropdown
+* Choose the desired category from the dropdown
+* press the "Get an excuse" button on the right side of the dropdown
+* Navigate to the "History" tab
+|*Erwartetes Resultat*
+|The user should now be able to see the excuses he has already gotten.
+|===
+
+
+==== Resultate
+
+[cols="1,1,1,1"]
+|===
+|*ID*
+|*Person*
+|*Datum*
+|*Erfolgreich*
+|*Bemerkungen*
+|===
