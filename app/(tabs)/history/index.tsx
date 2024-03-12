@@ -23,10 +23,8 @@ export default function History({navigation}: {navigation: any}) {
   const [history, setHistory] = useState<Excuse[]>();
 
   const refresh = async () => {
-    (async () => {
-      const history = await getHistory();
-      setHistory(history);
-    })();
+    const history = await getHistory();
+    setHistory(history);
   };
 
   useEffect(() => {
